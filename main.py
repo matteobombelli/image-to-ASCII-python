@@ -2,10 +2,10 @@ import cv2 as cv
 import numpy as np
 import os
 
-def print_ascii(image_path, max_side, mode):
+def print_ascii(image_path, max_side, mode, text_ratio):
     # Init palette and image
     palette = [
-    ' ', '-', ':', '=', '+', '#', '%', '@'
+    ' ', ':', '-', '+', 'I', '%', '#', '@'
     ]
     if (mode == 0):
         # Light mode, invert palette
@@ -72,8 +72,14 @@ while (image_file != 0):
     if (mode != 0 and mode != 1):
         print("Invalid selection")
         continue
+
+    print("Enter the horiztonal/vertical ratio of text (usually 2 or 3)")
+    text_ratio = int(input())
+    if (text_ratio < 1 or text_ratio > 5):
+        print("Invalid text ratio")
+        continue
     
     print("Printing your image...")
     image_path = images_directory
     image_path = os.path.join(image_path, files[image_file - 1])
-    print_ascii(image_path, int(max_side), mode)
+    print_ascii(image_path, max_side, mode, text_ratio)
