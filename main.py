@@ -2,11 +2,14 @@ import cv2 as cv
 import numpy as np
 import os
 
-def print_ascii(image_path, max_side):
+def print_ascii(image_path, max_side, mode):
     # Init palette and image
     palette = [
     ' ', '-', ':', '=', '+', '#', '%', '@'
     ]
+    if (mode == 0):
+        # Light mode, invert palette
+        palette = palette[::-1]
     image = cv.imread(image_path)
     if image is None:
         print(f"Error: Unable to read the image file at '{image_path}'.")
@@ -63,8 +66,14 @@ while (image_file != 0):
     if (max_side <= 0):
         print("Invalid resolution")
         continue
+
+    print("Enter 0 if you are on light mode, 1 if you are on dark mode")
+    mode = int(input())
+    if (mode != 0 and mode != 1):
+        print("Invalid selection")
+        continue
     
     print("Printing your image...")
     image_path = images_directory
     image_path = os.path.join(image_path, files[image_file - 1])
-    print_ascii(image_path, int(max_side))
+    print_ascii(image_path, int(max_side), mode)
