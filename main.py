@@ -5,7 +5,7 @@ import os
 def print_ascii(image_path, max_side):
     # Init palette and image
     palette = [
-    ' ', ':', '-', '=', '+', '#', '%', '@'
+    ' ', '-', ':', '=', '+', '#', '%', '@'
     ]
     image = cv.imread(image_path)
     if image is None:
