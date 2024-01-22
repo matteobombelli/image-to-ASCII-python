@@ -1,7 +1,7 @@
 # image-to-ASCII-python
 
 Image to ASCII generator. Compatible with both light and dark mode.<br />
-Intended to be run with ```python main.py``` <br />
+Intended to be run with ```python3 main.py``` <br />
 Dependencies: python3, opencv, numpy
 <br />
 ```
