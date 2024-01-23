@@ -4,9 +4,7 @@ import os
 
 def print_ascii(image_path, max_side, mode, text_ratio):
     # Init palette and image
-    palette = [
-    ' ', ':', '-', '+', 'I', '%', '#', '@'
-    ]
+    palette = " :-+I%#@"
     if (mode == 0):
         # Light mode, invert palette
         palette = palette[::-1]
